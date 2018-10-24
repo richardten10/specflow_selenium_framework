@@ -1,0 +1,57 @@
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using TechTalk.SpecFlow;
+
+namespace specflow
+{
+    [Binding]
+    public sealed class FirstStepDefinitions
+    {
+
+        static DriverFactory driverFactory = new DriverFactory();
+        static IWebDriver driver = driverFactory.getDriver();
+        FirstPage firstpage = new FirstPage(driver);
+
+        [Given(@"I am on google")]
+        public void GivenIAmOnGoogle()
+        {
+            firstpage.goTo();
+            Console.WriteLine("Opened URL");
+        }
+
+        [Given(@"I search for the website")]
+        public void GivenISearchForTheWebsite()
+        {
+            firstpage.searchForTrainline();
+            Console.WriteLine("searched");
+        }
+
+        [When(@"I click on the result")]
+        public void WhenIClickOnTheResult()
+        {
+            firstpage.clickOnSite();
+            Console.WriteLine("clicked on site");
+
+        }
+
+        [Then(@"the page title will be correct")]
+        public void ThenThePageTitleWillBeCorrect()
+        {
+            Assert.AreEqual("Trainline | Buy Cheap Train Tickets | Live Train Times & Fares", driver.Title);
+            Console.WriteLine("Page title is correct");
+        }
+
+        [AfterTestRun]
+        public static void AfterWebFeature()
+        {
+            driver.Quit();
+            driver.Dispose();
+        }
+
+    }
+}
