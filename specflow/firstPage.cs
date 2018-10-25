@@ -15,7 +15,7 @@ namespace specflow
         public IWebElement searchBar { get; set; }
 
 
-        [FindsBy(How = How.CssSelector, Using = "[data-hveid='CAQQAQ'] .LC20lb")]
+        [FindsBy(How = How.CssSelector, Using = "#rso > div:nth-child(1) > div > div > div > div > div.r > a > h3")]
         public IWebElement trainlineLink { get; set; }
 
 

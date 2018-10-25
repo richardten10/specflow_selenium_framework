@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -29,7 +30,7 @@ namespace specflow
 
         public void waitAndClick(IWebElement element)
         {
-            wait.Until(ExpectedConditions.ElementToBeClickable(element));
+              wait.Until(ExpectedConditions.ElementToBeClickable(element));
             element.Click(); 
         }
     }

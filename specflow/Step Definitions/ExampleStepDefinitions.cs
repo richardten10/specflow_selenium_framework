@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +9,8 @@ using TechTalk.SpecFlow;
 namespace specflow
 {
     [Binding]
-    public sealed class FirstStepDefinitions
+    public sealed class ExampleStepDefinitions
     {
-
         static DriverFactory driverFactory = new DriverFactory();
         static IWebDriver driver = driverFactory.getDriver();
         FirstPage firstpage = new FirstPage(driver);
@@ -52,6 +50,5 @@ namespace specflow
             driver.Quit();
             driver.Dispose();
         }
-
     }
 }

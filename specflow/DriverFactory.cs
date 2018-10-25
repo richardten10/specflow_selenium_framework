@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
 
 namespace specflow
 {
@@ -17,7 +18,9 @@ namespace specflow
         }
         private void setDriver()
         {
-            driver = new ChromeDriver(); 
+            driver = new ChromeDriver();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
         }
     }
 }
